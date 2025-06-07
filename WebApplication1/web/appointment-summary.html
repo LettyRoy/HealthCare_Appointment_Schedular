@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Appointment</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #dff9fb, #f6e58d);
+      padding: 50px;
+      color: #2d3436;
+    }
+    .printPage1{
+       display: flex;
+       justistfy-content: center;
+       align-items: center;
+       margin-top: 20px;
+    }
+
+    .summary-container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .summary-container h2 {
+      text-align: center;
+      color: #0984e3;
+      margin-bottom: 25px;
+    }
+
+    .doctor-info, .patient-info, .appointment-slot {
+      margin-bottom: 25px;
+    }
+
+    .doctor-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .info-box {
+      background: #f1f2f6;
+      border-radius: 10px;
+      padding: 15px;
+    }
+
+    .info-box p {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+
+    .highlight {
+      color: #00b894;
+      font-weight: bold;
+    }
+   .back{
+    align-items: center;
+   }
+
+   .back {
+  text-align: center;
+  margin-top: 30px; /* Optional: adjust space from top */
+}
+
+.back button {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #ff6b81;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back button:hover {
+  background-color: #e5506b;
+}
+ .print-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      align-items: center;
+    }
+
+    .print-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="summary-container">
+    <h2>🎉 Appointment Confirmed!</h2>
+    <div class="doctor-info info-box">
+      <img id="docImg" class="doctor-img" src="" alt="Doctor">
+      <p><strong>Name:</strong> <span id="docName"></span></p>
+      <p><strong>Degree:</strong> <span id="docDegree"></span></p>
+      <p><strong>Description:</strong> <span id="docDesc"></span></p>
+    </div>
+
+    <div class="appointment-slot info-box">
+      <p><strong>Day:</strong> <span id="slotDay" class="highlight"></span></p>
+      <p><strong>Time:</strong> <span id="slotTime" class="highlight"></span></p>
+    </div>
+
+    <div class="patient-info info-box">
+      <p><strong>Patient Name:</strong> <span id="patName"></span></p>
+      <p><strong>Age:</strong> <span id="patAge"></span></p>
+      <p><strong>Address:</strong> <span id="patAddress"></span></p>
+      <p><strong>Phone:</strong> <span id="patPhone"></span></p>
+      <p><strong>Symptoms:</strong> <span id="patSymptoms"></span></p>
+      
+    </div>
+              <div class="back">
+              <button  onclick="window.location.href='index2.html'">EXIT</button>
+              </div>
+  <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+  <button class="print-button" onclick="printPage()">🖨️ Print Page</button>
+</div>
+
+  </div>
+  <script>
+    const data = JSON.parse(localStorage.getItem("appointmentDetails"));
+    if (data) {
+      document.getElementById("docImg").src = data.doctor.image;
+      document.getElementById("docName").innerText = data.doctor.name;
+      document.getElementById("docDegree").innerText = data.doctor.degree;
+      document.getElementById("docDesc").innerText = data.doctor.description;
+
+      document.getElementById("slotDay").innerText = data.slot.day;
+      document.getElementById("slotTime").innerText = data.slot.time;
+
+      document.getElementById("patName").innerText = data.patient.name;
+      document.getElementById("patAge").innerText = data.patient.age;
+      document.getElementById("patAddress").innerText = data.patient.address;
+      document.getElementById("patPhone").innerText = data.patient.phone;
+      document.getElementById("patSymptoms").innerText = data.patient.symptoms;
+    } else {
+      document.body.innerHTML = "<h2 style='text-align:center;'>No appointment data found. 😞</h2>";
+    }
+    
+     function printPage() {
+      window.print();
+    }
+  </script>
+</body>
+</html>

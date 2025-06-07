@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Appointment Form</title>
+</head>
+<body>
+  <style type="text/css">
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background: linear-gradient(to right, #f1f2f6, #dfe4ea);
+    padding: 40px;
+    color: #2f3542;
+  }
+
+  #doctor-profile {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  #doctor-img {
+    border-radius: 50%;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  #doctor-profile h2 {
+    font-size: 1.8em;
+    color: #007bff;
+    margin-bottom: 5px;
+  }
+
+  #doctor-profile p {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    color: #57606f;
+  }
+
+  #booking-slots {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  }
+
+  #booking-slots h3 {
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    text-align: center;
+    color: #2ed573;
+  }
+
+  #booking-slots div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  #booking-slots button {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #booking-slots button:hover {
+    background-color: #1b74d3;
+  }
+
+  #patient-form {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  }
+
+  #patient-form h3 {
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    text-align: center;
+    color: #ff6b81;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  label {
+    font-size: 0.95em;
+    color: #2f3542;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced6e0;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  input:focus {
+    border-color: #1e90ff;
+  }
+
+  button[type="submit"] {
+    background-color: #2ed573;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #20bf6b;
+  }
+
+  .button-group button.active {
+  background-color: #2ed573;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+.back {
+  text-align: center;
+  margin-top: 30px; /* Optional: adjust space from top */
+}
+
+.back button {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #ff6b81;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back button:hover {
+  background-color: #e5506b;
+}
+
+
+  </style>
+  <div id="doctor-profile">
+    <img id="doctor-img" src="" alt="Doctor Image" width="150">
+    <h2 id="doctor-name"></h2>
+    <p id="doctor-degree"></p>
+    <p id="doctor-desc"></p>
+    <p><strong>Appointment fee:</strong> $50</p>
+  </div>
+
+  <div id="booking-slots">
+  <h3>Booking slots</h3>
+
+  <!-- Day Buttons -->
+  <div id="day-buttons" class="button-group">
+    <h4>DAY</h4>
+    <button>Wed 4</button>
+    <button>Thu 5</button>
+    <button>Fri 6</button>
+    <button>Sat 7</button>
+    <button>Sun 8</button>
+    <button>Mon 9</button>
+    <button>Tue 10</button>
+  </div>
+
+  <!-- Time Buttons -->
+  <div id="time-buttons" class="button-group">
+    <h4>TIME</h4>
+    <button>05:00 PM</button>
+    <button>06:00 PM</button>
+    <button>06:30 PM</button>
+    <button>07:00 PM</button>
+    <button>07:30 PM</button>
+  </div>
+</div>
+
+
+  <div id="patient-form">
+    <h3>Patient Information</h3>
+    <form onsubmit="submitAppointment(event)">
+      <label>Name: <input type="text" required></label><br>
+      <label>Age: <input type="number" required></label><br>
+      <label>Address: <input type="text" required></label><br>
+      <label>Phone: <input type="tel" required></label><br>
+      <label>SYMPTOMS </label>
+      <textarea rows="4" cols="30"></textarea><br>
+
+      <button type="submit">Book an Appointment</button><br>
+
+    </form>
+  </div>
+   <div class="back">
+              <button  onclick="window.location.href='alldoctor.html'">Back</button>
+              </div>
+  <script>
+    window.onload = function() {
+      const doctor = JSON.parse(localStorage.getItem("selectedDoctor"));
+      if (doctor) {
+        document.getElementById("doctor-img").src = doctor.image;
+        document.getElementById("doctor-name").innerText = doctor.name;
+        document.getElementById("doctor-degree").innerText = doctor.degree;
+        document.getElementById("doctor-desc").innerText = doctor.description;
+      }
+    };
+
+    function submitAppointment(event) {
+      event.preventDefault();
+      alert("Appointment booked successfully! ✅");
+      localStorage.removeItem("selectedDoctor");
+    }
+    function submitAppointment(event) {
+  event.preventDefault();
+
+  const name = document.querySelector('input[type="text"]').value;
+  const age = document.querySelector('input[type="number"]').value;
+  const address = document.querySelectorAll('input[type="text"]')[1].value;
+  const phone = document.querySelector('input[type="tel"]').value;
+  const symptoms = document.querySelector('textarea').value;
+
+  const selectedDay = document.querySelector('#booking-slots div:nth-of-type(1) button.active')?.innerText;
+   const selectedTime = document.querySelector('#booking-slots div:nth-of-type(2) button.active')?.innerText;
+
+  const doctor = JSON.parse(localStorage.getItem("selectedDoctor"));
+
+  const appointmentDetails = {
+    doctor,
+    patient: { name, age, address, phone, symptoms },
+    slot: { day: selectedDay, time: selectedTime }
+  };
+
+  localStorage.setItem("appointmentDetails", JSON.stringify(appointmentDetails));
+  window.location.href = "appointment-summary.html";
+}
+document.querySelectorAll('#booking-slots button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // remove active from all
+    btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    // add active to clicked
+    btn.classList.add('active');
+  });
+});
+
+  </script>
+</body>
+</html>

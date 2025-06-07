@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Complete Responsive Hospital Website Design Tutorial</title>
+
+        <!-- font awesome cdn link  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+        <!-- custom css file link  -->
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', sans-serif;
+            }
+
+            body {
+                background-color: #f1f2f6;
+            }
+
+            .speciality-banner {
+                text-align: center;
+                padding: 50px 20px;
+                background: linear-gradient(to right, #eef2f3, #f8f9fa);
+            }
+
+            .speciality-banner h2 {
+                font-size: 36px;
+                color: #0188df;
+                margin-bottom: 10px;
+            }
+
+            .speciality-banner p {
+                color: #555;
+                margin-bottom: 40px;
+                font-size: 18px;
+            }
+
+            .speciality-cards {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 40px;
+            }
+
+            .card {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                background: white;
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            }
+
+            .card img {
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 10px;
+                border: 2px solid #ddd;
+            }
+
+            .card span {
+                font-size: 14px;
+                color: #333;
+                font-weight: 500;
+            }
+
+
+            footer {
+                background-color: #222;
+                color: #fff;
+                padding: 20px 10px;
+                text-align: center;
+                font-size: 14px;
+            }
+            footer strong {
+                color: #f0c040; /* Optional highlight */
+            }
+
+            .footer {
+                background: #1e1e2f;
+                color: #ffffff;
+                padding: 20px 0;
+                font-family: 'Segoe UI', sans-serif;
+            }
+
+            .footer-container {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+                max-width: 1000px;
+                margin: auto;
+                padding: 0 20px;
+            }
+
+            .footer-column {
+                flex: 1;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .footer-column h4 {
+                font-size: 24px;
+                color: #ffce00;
+                margin-bottom: 8px;
+            }
+
+            .footer-column p {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            .footer-column strong {
+                color: #00ffd5;
+            }
+
+            @media (max-width: 768px) {
+                .footer-container {
+                    flex-direction: column;
+                    text-align: center;
+                }
+            }
+
+
+            .more-text {
+                display: none;
+            }
+
+            .read-more-btn {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                font-size: 16px;
+                border-radius: 5px;
+            }
+
+            .read-more-btn:hover {
+                background-color: #0056b3;
+            }
+
+            .container {
+                max-width: 1000px;
+                margin: 60px auto;
+                padding: 40px;
+                background-color: #fff;
+                border-radius: 12px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            h1 {
+                font-size: 36px;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 18px;
+                line-height: 1.6;
+                color: #333;
+
+                .highlight {
+                    font-weight: bold;
+                }
+
+
+                .about-section {
+                    max-width: 800px;
+                    margin: 30px auto;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                    font-family: 'Segoe UI', sans-serif;
+                }
+
+                .about-section h3 {
+                    color: #007bff;
+                    margin-bottom: 15px;
+                    font-size: 36px;
+                }
+
+                .about-section p {
+                    font-size: 16px;
+                    line-height: 1.6;
+                    color: #333;
+                }
+
+                .about-section button {
+                    margin-top: 10px;
+                    padding: 10px 20px;
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    border-radius: 6px;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+
+                .about-section img {
+                    width: 100%;
+                    margin-top: 20px;
+                    border-radius: 10px;
+                }
+
+
+
+
+
+            </style>
+        </head>
+
+
+
+        <body>
+
+
+            <!-- header navbar section start  -->
+
+            <header>
+
+                <!-- logo name  -->
+                <a href="#" class="logo"><span>D</span>octors <span>C</span>ares.</a>
+
+                <!-- navbar link  -->
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="#home">home</a></li>
+                        <li><a href="#about">about</a></li>
+                        <li><a href="#doctor">doctor</a></li>
+                        <li><a href="#review">review</a></li>
+                        <li><a href="#contact">contact</a></li>
+                        <li><a href="#blog">blog</a></li>
+
+                        <li>
+                            <a href="#logout" onclick="logout()" id="logoutButton" style="color: red;">
+                                <i class="fas fa-sign-out-alt"></i> <span style="color: red;">Logout</span>
+                            </a>
+
+                            <!--                            <a href="#logout" onclick="logout()" id="logoutButton">
+                                                            
+                                                            <i class="fas fa-sign-out-alt"></i> Logout
+                                                        </a>-->
+                        </li>
+
+
+                    </ul>
+                </nav>
+
+                <div class="fas fa-bars"></div>
+            </header>
+            <!-- header navbar section end  -->
+
+            <!-- home section start  -->
+
+            <section id="home" class="home">
+
+                <div class="row">
+
+                    <!-- home images  -->
+                    <div class="images">
+                        <img src="./images/home.png" alt="">
+                    </div>
+
+                    <!-- home heading  -->
+                    <div class="container">
+                        <h1><span style="color: #007bff;">Stay</span> Safe, <span style="color: #007bff;">Stay</span> Healthy.</h1>
+                        <p> 👋 Welcome To Healthcare Management  🌐 </p>
+
+                        <!-- Read More Button -->
+                        <button class="read-more-btn" onclick="toggleText()">Read More</button>
+
+                        <!-- Hidden Paragraph -->
+                        <p id="moreText" class="more-text">
+                            <span class="highlight">Welcome To Healthcare Management</span>,  Your Trusted Partner In Health And Wellness. 
+                            We Are Committed To Providing High-Quality And Affordable Healthcare Services To Everyone. 
+                            Our Platform Offers A Wide Range Of Facilities Including A 24/7 Emergency Room 🚨, 
+                            Fast And Reliable Ambulance Services 🚑, Free Health Check-Ups 🩺, And Much More. 
+                            With A Team Of Dedicated Professionals 👩‍⚕️👨‍⚕️ And Advanced Medical Support, 
+                            We Aim To Ensure That Every Patient Receives Timely And Effective Care. 
+                            At Healthcare Management, Your Health Is Our Top Priority ❤️.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- home section end  -->
+
+            <!-- about section start  -->
+
+            <section id="about" class="about">
+
+                <h1 class="heading">about our facility</h1>
+                <h3 class="title">learn and explore our facility</h3>
+
+                <div class="box-container">
+
+                    <!-- start here  -->
+                    <div class="box">
+                        <!-- about images  -->
+                        <div class="images">
+                            <img src="./images/about-1.png" alt="">
+                        </div>
+
+                        <!-- about heading & text  -->
+                        <div class="content">
+                            <h3>🚑 Ambulance Services 🚑 </h3>
+                            <p id="text">
+                                Our ambulance services are designed to respond swiftly and efficiently in critical situations.
+                                <span id="dots">...</span>
+                                <span id="more" style="display: none;">
+                                    With a fleet of modern, well-equipped vehicles and highly trained medical staff, we ensure fast and safe transportation to hospitals. Whether it's a medical emergency, accident, or planned transfer, our 24/7 service guarantees immediate care and support. GPS-enabled tracking, real-time updates, and on-board life-saving equipment make us a reliable partner during emergencies. Your safety and health are our top priority.
+                                </span>
+                            </p>
+                            <button class="button" onclick="toggleText1()" id="btn1">learn more</button>
+                        </div>
+                    </div>
+                    <!-- end here  -->
+
+
+                    <!-- start here  -->
+                    <div class="box">
+                        <!-- about images  -->
+                        <div class="images">
+                            <img src="./images/about-2.png" alt="">
+                        </div>
+
+                        <!-- about heading & text  -->
+                        <div class="content">
+                            <h3>🚨 24/7 Emergency Rooms</h3>
+                            <p id="text">
+                                Emergencies don’t wait — and neither do we. ⏰ Our 24/7 Emergency Rooms are fully equipped
+                                <span id="dots1">...</span>
+                                <span id="more1" style="display: none;">
+                                    to handle critical situations anytime, day or night 🌙🌞. From quick response teams 🏃‍♂️ to life-saving equipment ❤️‍🩹, we ensure immediate attention when every second counts. Just walk in or call, and we’ll be there to help — because your life matters! 🏥⚡
+                                </span>
+                            </p>
+                            <button class="button" onclick="toggleText2()" id="btn2">learn more</button>
+                        </div>
+                    </div>
+                    <!-- end here  -->
+
+
+                    <!-- start here  -->
+                    <div class="box">
+                        <!-- about images  -->
+                        <div class="images">
+                            <img src="./images/about-3.png" alt="">
+                        </div>
+
+                        <!-- about heading & text  -->
+                        <div class="content">
+                            <h3>🩺 Free Health Checkup</h3>
+                            <p id="text">
+                                At Doctor Care, your wellness begins with prevention! 💚
+                                <span id="dots3">...</span>
+                                <span id="more3" style="display: none;">
+                                    That’s why we offer absolutely FREE health checkups to help you stay on top of your health without worrying about cost. ✅ Whether it’s a routine blood pressure check, sugar test, or general consultation, our doctors are here to guide you every step of the way 🧑‍⚕️📋. Your health is priceless — and so is our care! 💖                                </span>
+                                </span>
+                            </p>
+                            <button class="button" onclick="toggleText3()" id="btn3">learn more</button>
+                        </div>
+                    </div>
+                    <!-- end here  -->
+                </div>
+            </section>
+
+            <!-- about section end  -->
+
+            <!-- card section start  -->
+
+
+            <section id="doctor" class="speciality-banner">
+                <h2>Find by Speciality</h2>
+                <p>Browse our list of trusted doctors & schedule your appointment hassle-free.</p>
+                <div class="speciality-cards">
+                    <div class="card" onclick="goTo('general')">
+                        <img src="images/general.png" alt="General Physician" />
+                        <span>General Physician</span>
+                    </div>
+                    <div class="card" onclick="goTo('gynecologist')">
+                        <img src="images/gynecologist.png" alt="Gynecologist" />
+                        <span>Gynecologist</span>
+                    </div>
+                    <div class="card" onclick="goTo('dermatologist')">
+                        <img src="images/dermatologist.png" alt="Dermatologist" />
+                        <span>Dermatologist</span>
+                    </div>
+                    <div class="card" onclick="goTo('pediatrician')">
+                        <img src="images/pediatrician.png" alt="Pediatrician" />
+                        <span>Pediatricians</span>
+                    </div>
+                    <div class="card" onclick="goTo('neurologist')">
+                        <img src="images/nuerologist.png" alt="Neurologist" />
+                        <span>Neurologist</span>
+                    </div>
+                    <div class="card" onclick="goTo('gastroenterologist')">
+                        <img src="images/gastroenterologist2.png" alt="Gastroenterologist" />
+                        <span>Gastroenterologist</span>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+            <!-- card section end  -->
+
+            <!-- review section start  -->
+
+            <section id="review" class="review">
+
+                <h1 class="heading">our patient review</h1>
+                <h3 class="title">what patient says about us</h3>
+
+                <div class="box-container">
+
+                    <!-- start here  -->
+                    <div class="box">
+                        <i class="fas fa-quote-left"></i>
+                        <p>🩺 Such a user-friendly platform ! I was able to book an appointment with a specialist in just a few clicks. 💻 The website is clean, responsive, and easy to navigate. 👍 Highly recommend for anyone looking for trusted medical advice online!</p>
+
+                        <div class="images">
+                            <img src="./images/img-1.jpg" alt="">
+
+                            <div class="info">
+                                <h3>Priya Srivastava</h3>
+                                <span>date : January 11, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end here  -->
+
+
+                    <!-- start here  -->
+                    <div class="box">
+                        <i class="fas fa-quote-left"></i>
+                        <p>The Doctor Care website provides quick access to specialists and has a modern ?, responsive design. I booked a consultation for my mom 👩‍⚕️👩‍⚕️, and the process was smooth. Thank you for creating such a valuable service😌😌!</p>
+
+                        <div class="images">
+                            <img src="./images/img-2.jpg" alt="">
+
+                            <div class="info">
+                                <h3>Kabir Singh</h3>
+                                <span>date : May 19,2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end here  -->
+
+
+                    <!-- start here  -->
+                    <div class="box">
+                        <i class="fas fa-quote-left"></i>
+                        <p>🌐 I love how organized the Doctor Care website is. From viewing doctors’ profiles 👨‍⚕️👩‍⚕️ to scheduling appointments 📅 — everything is simple and fast. Great job! 👏 Thank You So Much</p>
+
+                        <div class="images">
+                            <img src="./images/img-3.jpg" alt="">
+
+                            <div class="info">
+                                <h3>Arjun Roy</h3>
+                                <span>date : July 27, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end here  -->
+                </div>
+            </section>
+            <!-- review section end  -->
+
+            <!-- contact section start  -->
+
+            <section id="contact" class="contact">
+
+                <h1 class="heading">contact us</h1>
+                <h3 class="title">you can talk to us any times,</h3>
+
+                <div class="row">
+
+                    <!-- form images  -->
+                    <div class="images">
+                        <img src="./images/form.png" alt="">
+                    </div>
+
+                    <div class="form-container">
+
+                        <form action="saveContact.jsp" method="post">
+                            <input type="text" name="fullname" placeholder="Full Name" required>
+                            <input type="email" name="email" placeholder="Enter Your Email" required>
+                            <input type="number" name="phone" placeholder="Phone" required>
+                            <textarea name="message" placeholder="Your Message" cols="30" rows="10" required></textarea>
+                            <input type="submit" value="Send">
+                        </form>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+            </section>
+
+
+
+            <!-- contact section end  -->
+
+
+            <!-- blog section start  -->
+
+            <section id="blog" class="blog">
+
+                <h1 class="heading">blog</h1>
+                <h3 class="title">Doctor Care Insights : Your Guide to Better Health</h3>
+
+                <div class="box-container">
+
+                    <!-- start here  -->
+                    <div class="box">
+                        <!-- images  -->
+                        <img src="./images/blog 1.png" alt="">
+
+                        <div class="content">
+                            <a href="#">
+                                <h2>diabetes</h2>
+                            </a>
+                            <p>Diabetes is more than just a sugar-related condition; it's a long-term lifestyle challenge. In this blog, we explore how to effectively manage diabetes through proper diet, regular exercise, and medical guidance. Understanding the types of diabetes and early symptoms can empower individuals to make informed health choices and lead a balanced life.</p>
+
+                        </div>
+                    </div>
+                    <!-- end here  -->
+
+
+                    <!-- start here  -->
+                    <div class="box">
+                        <!-- images  -->
+                        <img src="./images/blog 2.png" alt="">
+
+                        <div class="content">
+                            <a href="#">
+                                <h2>covid-19 vaccine</h2>
+                            </a>
+                            <p>The COVID-19 vaccine remains one of the most powerful tools in preventing severe illness and stopping the spread of the virus. This blog provides detailed insights into how the vaccine works, its benefits, safety information, and why getting vaccinated is essential for personal and public health.!</p>
+                            <!-- button  -->
+
+                        </div>
+                    </div>
+                    <!-- end here  -->
+
+
+                    <!-- start here  -->
+                    <div class="box">
+                        <!-- images  -->
+                        <img src="./images/blog 3.png" alt="">
+
+                        <div class="content">
+                            <a href="#">
+                                <h2>prevent epidemic</h2>
+                            </a>
+                            <p>Preventing an epidemic starts with awareness and preparedness. In this blog, we discuss effective strategies such as hygiene practices, early diagnosis, and timely medical intervention. By staying informed and acting responsibly, we can reduce the risk of outbreaks and safeguard our communities.</p>
+
+                        </div>
+                    </div>
+                    <!-- end here  -->
+                </div>
+            </section>
+
+
+
+            <!-- blog section end  -->
+
+            <!-- footer section start  -->
+
+            <section class="footer">
+
+                <div class="box">
+                    <h2 class="logo"><span>D</span>octors <span>C</span>ares</h2>
+
+                    <p>At Doctor Cares we believe in a patient-first approach.
+                        We are dedicated to providing compassionate and comprehensive care, focused on understanding your individual needs and health goals. 
+                </div>
+
+                <div class="box">
+                    <h2 class="logo"><span>S</span>hare</h2>
+
+
+                    <a href="#j"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="#m"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#m"><i class="fab fa-youtube"></i> YouTube</a>
+                    <a href="#r"><i class="fab fa-twitter"></i> Twitter</a>
+
+                </div>
+
+                <div class="box">
+                    <h2 class="logo"><span>L</span>inks</h2>
+
+                    <a href="#home">home</a>
+                    <a href="#about">about</a>
+                    <a href="#doctor">Doctor</a>
+                    <a href="#review">Review</a>
+                    <a href="#contact">contact</a>
+                    <a href="#blog">blog</a>
+                </div>
+
+
+
+            </section>
+
+
+            <!-- HTML -->
+
+            <footer style="background-color: white;
+                    color: #fff;
+                    padding: 30px 15px;
+                    text-align: center;
+                    font-size: 16px;
+                    line-height: 1.8;
+                    font-family: Arial, sans-serif;">
+                <div style="display: flex;
+                     flex-wrap: wrap;
+                     justify-content: center;
+                     gap: 30px;">
+                    <div style="min-width: 250px;">
+
+                        <p style="margin: 10px 0;
+                           font-weight: 500;">© 2025 Idea and Creation by <br><strong style="color: #428df5;">Ankit Kishore Sen</strong>.</p>
+                    </div>
+                    <div style="min-width: 250px;">
+                        <p style="margin: 10px 0;
+                           font-weight: 500;">© 2025 Designed and Implemented by<br> <strong style="color: #428df5;">Ankit Kishore Sen</strong> & <strong style="color: #428df5;"><br>Riya Raj <br> Varsha Sinha <br>Simmi Keshari <br>Priyanshi Gupta</strong>.</p>
+                    </div>
+                    <div style="min-width: 250px;">
+                        <p style="margin: 10px 0;
+                           font-weight: 500;">© 2025 Project Titled:<br> <strong style="color: #428df5;">Healthcare Appointment Schedular</strong></p>
+                    </div>
+                </div>
+            </footer>
+
+
+
+
+
+
+            <!-- footer section end  -->
+
+
+            <!-- jquery cdn link  -->
+            <script>
+                function goTo(speciality) {
+                    window.location.href = `alldoctor.html#${speciality}`;
+                }
+
+
+                function toggleText() {
+                    const moreText = document.getElementById("moreText");
+                    const btn = document.querySelector(".read-more-btn");
+
+                    if (moreText.style.display === "none" || moreText.style.display === "") {
+                        moreText.style.display = "block";
+                        btn.textContent = "Read Less";
+                    } else {
+                        moreText.style.display = "none";
+                        btn.textContent = "Read More";
+                    }
+                }
+
+                function toggleText1() {
+                    const dots = document.getElementById("dots");
+                    const more = document.getElementById("more");
+                    const btn1 = document.getElementById("btn1");
+
+                    if (dots.style.display === "none") {
+                        dots.style.display = "inline";
+                        more.style.display = "none";
+                        btn1.innerText = "learn More";
+                    } else {
+                        dots.style.display = "none";
+                        more.style.display = "inline";
+                        btn1.innerText = "learn Less";
+                    }
+                }
+
+
+                function toggleText2() {
+                    const dots1 = document.getElementById("dots1");
+                    const more1 = document.getElementById("more1");
+                    const btn2 = document.getElementById("btn2");
+
+                    if (dots1.style.display === "none") {
+                        dots1.style.display = "inline";
+                        more1.style.display = "none";
+                        btn2.innerText = "learn More";
+                    } else {
+                        dots1.style.display = "none";
+                        more1.style.display = "inline";
+                        btn2.innerText = "learn Less";
+                    }
+                }
+
+                function toggleText3() {
+                    const dots3 = document.getElementById("dots3");
+                    const more3 = document.getElementById("more3");
+                    const btn3 = document.getElementById("btn3");
+
+                    if (dots3.style.display === "none") {
+                        dots3.style.display = "inline";
+                        more3.style.display = "none";
+                        btn3.innerText = "learn More";
+                    } else {
+                        dots3.style.display = "none";
+                        more3.style.display = "inline";
+                        btn3.innerText = "learn Less";
+                    }
+                }
+
+
+
+
+                document.getElementById("logoutButton").addEventListener("click", function (event) {
+                    event.preventDefault(); // stop default # link
+                    // Optionally clear session/local storage here
+                    window.location.href = "index.html"; // Redirect to index.html
+                });
+            </script>
+
+
+
+
+
+
+        </body>
+
+    </html>

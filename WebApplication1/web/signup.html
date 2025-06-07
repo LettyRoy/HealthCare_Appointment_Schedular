@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .signup-box {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      overflow-y: auto;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .signup-box img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+
+    .signup-box h2 {
+      color: #1abc9c;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .signup-box p {
+      color: #555;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    .signup-box input {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      transition: border 0.3s;
+    }
+
+    .signup-box input:focus {
+      border-color: #1abc9c;
+      outline: none;
+    }
+
+    .signup-box button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to right, #1abc9c, #16a085);
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .signup-box button:hover {
+      background: linear-gradient(to right, #159b80, #138971);
+    }
+
+    .login-text {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .login-text a {
+      color: #1abc9c;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .login-text a:hover {
+      color: #138d75;
+    }
+
+    @media (max-height: 600px) {
+      .signup-box {
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signup-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/3870/3870822.png" alt="Doctor Icon">
+    <h2>Create Account 📝</h2>
+    <p>Register to access the HealthCare Portal</p>
+
+    <form action="signup.jsp" method="post">
+      <input type="text" name="fullname" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+<button type="submit">SIGNUP</button>
+
+    </form>
+
+    <div class="login-text">
+      Already have an account? <a href="login.html">LOGIN</a>
+    </div>
+  </div>
+
+</body>
+</html>
